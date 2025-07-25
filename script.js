@@ -1,26 +1,31 @@
 const makeChange = (c) => {
-  // your name hereunction makeChange(amount) {
-    let quarters = Math.floor(amount / 25);
-    amount %= 25; // Get the remaining amount after quarters
+ function makeChange(amount) {
+  let change = {
+    q: 0, 
+    d: 0,
+    n: 0,
+    p: 0  
+  };
 
-    let dimes = Math.floor(amount / 10);
-    amount %= 10; // Get the remaining amount after dimes
+  // Calculate quarters
+  change.q = Math.floor(amount / 25);
+  amount %= 25;
 
-    let nickels = Math.floor(amount / 5);
-    amount %= 5; // Get the remaining amount after nickels
+  // Calculate dimes
+  change.d = Math.floor(amount / 10);
+  amount %= 10;
 
-    let pennies = amount; // The remaining amount is the number of pennies
+  // Calculate nickels
+  change.n = Math.floor(amount / 5);
+  amount %= 5;
 
-    return {
-        q: quarters,
-        d: dimes,
-        n: nickels,
-        p: pennies
-    };
+  // Calculate pennies
+  change.p = amount;
+
+  return change;
 }
 
-};
-
+}
 // Do not the change the code below
 const c = prompt("Enter c: ");
 alert(JSON.stringify(makeChange(c)));
